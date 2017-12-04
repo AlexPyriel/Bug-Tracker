@@ -1,0 +1,53 @@
+Inverted navbar
+@navbar-inverse-bg #00838f
+
+Scaffolding
+@body-bg #abd1db
+
+Typography
+@font-family-sans-serif  "Verdana", Verdana, Arial, sans-serif
+
+Buttons
+@btn-info-bg #00abc2
+
+Components
+@border-radius-base 0px
+
+/*----------Bootstrap CSS override----------*/
+
+.navbar {
+  min-height: 42px;
+  margin-bottom: 0;
+  /*min-height: 50px;*/
+  /*margin-bottom: 20px;*/
+}
+.navbar-brand {
+  padding: 10px 10px;
+  height: 42px;
+  margin-left: -15px;
+  /*padding: 15px 15px;*/
+  /*height: 50px;*/
+}
+.navbar-inverse .navbar-brand {
+  color: white;
+  /*color: #9d9d9d;*/
+}
+.navbar-inverse .navbar-brand:hover {
+    color: #abd1db;
+    /*color: #ffffff;*/
+}
+.navbar-form {
+  margin-top: 0;
+  margin-bottom: 0;
+  /*margin-top: 8px;*/
+  /*margin-bottom: 8px;*/
+}
+.navbar-right {
+  /*margin-right: -15px;*/
+}
+.container > .navbar-header,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse,
+.container-fluid > .navbar-collapse {
+/*margin-left: -15px;*/
+}

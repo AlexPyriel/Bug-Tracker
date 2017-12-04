@@ -1,0 +1,49 @@
+{
+  "name": "meanbt",
+  "version": "1.0.0",
+  "description": "MEAN Stack Bug Tracker",
+  "main": "server.js",
+  "dependencies": {
+    "angular-animate": "^1.6.1",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^8.1.0",
+    "lodash": "^4.17.3",
+    "mongoose": "^4.7.5",
+    "mongoose-auto-increment": "^5.0.1",
+    "mpromise": "^0.5.5",
+    "nconf": "^0.8.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.0",
+    "sanitize-html": "^1.14.1",
+    "validator": "^9.0.0",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.1",
+    "http-server": "^0.10.0",
+    "nodemon": "^1.12.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "public/*",
+      "node_modules/*"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "http-server ./public -a localhost -p 3000 -c-1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexPyriel/meanBt.git"
+  },
+  "author": "AlexPyriel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexPyriel/meanBt/issues"
+  },
+  "homepage": "https://github.com/AlexPyriel/meanBt#readme"
+}

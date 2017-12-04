@@ -1,0 +1,15 @@
+<div class="navbar-right" ng-switch on="$ctrl.path">
+  <div ng-switch-when="/">
+    <app-nav-button ng-click="$ctrl.signup()" icon="glyphicon glyphicon-user" ng-hide="$ctrl.isAuthenticated()"> Sign Up</app-nav-button>
+    <app-nav-button ng-click="$ctrl.login()" icon="glyphicon glyphicon-log-in" ng-hide="$ctrl.isAuthenticated()"> Log In</app-nav-button>
+  </div>
+
+  <div ng-switch-when="/login">
+    <app-nav-button ng-click="$ctrl.signup()" icon="glyphicon glyphicon-user" ng-hide="$ctrl.isAuthenticated()"> Sign Up</app-nav-button>
+  </div>
+
+  <div ng-switch-when="/signup">
+    <app-nav-button ng-click="$ctrl.login()" icon="glyphicon glyphicon-log-in" ng-hide="$ctrl.isAuthenticated()"> Log In</app-nav-button>
+  </div>
+</div>
+<app-user-menu  class="navbar-right" ng-if="$ctrl.isAuthenticated()"></app-user-menu>

@@ -1,0 +1,48 @@
+<div class="block-vertical-align">
+    <form novalidate class="auth-form" name="signupForm" ng-submit="$ctrl.signup()">
+        <h2>Sign Up</h2>
+
+        <input type="text" class="form-control auth-form__elements app-form-outline_valid" ng-class="{'app-form-outline_invalid': signupForm.uFmame.$touched || signupForm.$submitted}"
+            placeholder="First Name" ng-model="$ctrl.user.firstName" name="uFmame" app-name required>
+        <div ng-messages="signupForm.uFmame.$error" class="app-form__alerts" ng-if='(signupForm.uFmame.$touched && signupForm.uFmame.$invalid) || (signupForm.uFmame.$invalid && signupForm.$submitted)'>
+            <div ng-message="required" class="app-form__alert">The <strong>First Name</strong> is required.</div>
+            <div ng-message="username" class="app-form__alert">Only <strong>alpha</strong> characters are allowed.</div>
+        </div>
+
+        <input type="text" class="form-control auth-form__elements app-form-outline_valid" ng-class="{'app-form-outline_invalid': signupForm.uLname.$touched || signupForm.$submitted}"
+            placeholder="Last Name" ng-model="$ctrl.user.lastName" name="uLname" app-name required>
+        <div ng-messages="signupForm.uLname.$error" class="app-form__alerts" ng-if='(signupForm.uLname.$touched && signupForm.uLname.$invalid) || (signupForm.uLname.$invalid && signupForm.$submitted)'>
+            <div ng-message="required" class="app-form__alert">The <strong>Last Name</strong> is required.</div>
+            <div ng-message="username" class="app-form__alert">Only <strong>alpha</strong> characters are allowed.</div>
+        </div>
+
+        <input type="email" class="form-control auth-form__elements app-form-outline_valid" ng-class="{'app-form-outline_invalid': signupForm.uEmail.$touched || signupForm.$submitted}"
+            placeholder="Email Address" ng-model="$ctrl.user.email" name="uEmail" app-email required>
+        <div ng-messages="signupForm.uEmail.$error" class="app-form__alerts" ng-if='(signupForm.uEmail.$touched && signupForm.uEmail.$invalid) || (signupForm.uEmail.$invalid && signupForm.$submitted)'>
+            <div ng-message="required" class="app-form__alert">The <strong>Email Address</strong> is required.</div>
+            <div ng-message="useremail" class="app-form__alert">The <strong>Email Address</strong> format is invalid.</div>
+        </div>
+
+        <div>
+            <input type="password" class="form-control auth-form__elements app-form-outline_valid" ng-class="{'app-form-outline_invalid': signupForm.uPassword.$touched || signupForm.$submitted}"
+                placeholder="Password" ng-model="$ctrl.user.password" name="uPassword" ng-minlength="8" ng-maxlength="20" app-password required>
+            <span class="badge app-form__password-label_valid" ng-class="{'app-form__password-label_invalid': (signupForm.uPassword.$touched && signupForm.uPassword.$invalid) || (signupForm.uPassword.$invalid && signupForm.$submitted)}" ng-bind="$ctrl.passLength"></span>
+        </div>
+
+        <div ng-messages="signupForm.uPassword.$error" multiple class="app-form__alerts" ng-if='(signupForm.uPassword.$touched && signupForm.uPassword.$invalid) || (signupForm.uPassword.$invalid && signupForm.$submitted)'>
+            <div ng-message="required" class="app-form__alert">The <strong>Password</strong> is required.</div>
+            <div ng-message="userpassword" class="app-form__alert">Only <strong>alphanumeric</strong> characters are allowed.</div>
+            <div ng-message="minlength" class="app-form__alert"><strong>Password</strong> must be at least 8 characters.</div>
+            <div ng-message="maxlength" class="app-form__alert"><strong>Password</strong> must not exceed 20 characters.</div>
+        </div>
+
+        <input type="password" class="form-control auth-form__elements app-form-outline_valid" ng-class="{'app-form-outline_invalid': signupForm.uRePassword.$touched || signupForm.$submitted}"
+            placeholder="Re-enter Password" ng-model="$ctrl.user.reEnterPassword" name="uRePassword" app-re-password required>
+        <div ng-messages="signupForm.uRePassword.$error" class="app-form__alerts" ng-if='(signupForm.uRePassword.$touched && signupForm.uRePassword.$invalid) || (signupForm.uRePassword.$invalid && signupForm.$submitted)'>
+            <div ng-message="required" class="app-form__alert">Please re-enter your <strong>Password</strong>.</div>
+            <div ng-message="repassword" class="app-form__alert"><strong>Passwords</strong> must be the same.</div>
+        </div>
+
+        <button type="submit" class="btn btn-info btn-block app-btn app-btn_shadow auth-form__elements">Sign Up</button>
+    </form>
+</div>

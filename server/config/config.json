@@ -1,0 +1,27 @@
+{
+    "port": 3000,
+    "mongoose": {
+        "uri": "mongodb://localhost/meanBt",
+        "options": {
+            "reconnectTries": 30000,
+            "reconnectInterval": 1000,
+            "keepAlive": 1,
+            "bufferMaxEntries": 0,
+            "useMongoClient": true
+        }
+    },
+    "workitem": {
+        "properties":  {
+            "blocked": "Blocked",
+            "description": "Description",
+            "priority": "Priority",
+            "reprosteps": "Repro Steps",
+            "state": "State",
+            "symptom": "Symptom",
+            "title": "Title"
+          }
+    },
+    "jwt": {
+        "secret": " LeeloominaiLekataribaLaminatchaEkbatDSabat"
+    }
+}

@@ -1,0 +1,128 @@
+<div ng-show="$ctrl.tab.selected" id="{{$ctrl.getID()}}" ng-transclude>
+    <div class="panel panel_no-margin-bottom">
+        <div class="panel-body panel-body_no-padding-top">
+            <div class="row">
+
+                <form name="appForm">
+
+                    <nav class="navbar app-pane_navbar">
+                        <div class="container-fluid">
+                            <div class="navbar-left">
+                                <!-- <div type="button" class="btn btn-default app-btn" ng-if="!$ctrl.new">
+                                    <span class="glyphicon glyphicon-paste" aria-hidden="true"></span> Check Out and Edit</div>
+                                <div type="button" class="btn btn-default app-btn" ng-if="!$ctrl.new">
+                                    <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Check In</div> -->
+                            </div>
+                            <div class="navbar-right">
+                                <div type="button" class="btn btn-default app-btn" ng-if="$ctrl.disabled" ng-click="$ctrl.edit()">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</div>
+                                <div type="button" class="btn btn-info app-btn" ng-if="$ctrl.disabled" ng-click="$ctrl.refresh()">
+                                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Refresh</div>
+                                <div type="button" class="btn btn-success app-btn" ng-if="!$ctrl.disabled && appForm.$dirty" ng-click="$ctrl.save()">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save</div>
+                                <div type="button" class="btn btn-danger app-btn" ng-if="!$ctrl.disabled && !$ctrl.new" ng-click="$ctrl.cancel()">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</div>
+                            </div>
+                        </div>
+                    </nav>
+
+
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-md-4 col-lg-4 control-label">{{$ctrl.getTitleLabel()}}: </label>
+                                    <div class="col-sm-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control" ng-readonly="$ctrl.disabled" ng-model="$ctrl.workitem.title">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-lg-3 control-label">State:</label>
+                                    <div class="input-group col-sm-9 col-md-9 col-lg-9 panel-body_no-padding-top-bottom">
+                                        <select class="form-control" ng-disabled="$ctrl.disabled || $ctrl.new" ng-model="$ctrl.workitem.state">
+                                            <option value="Proposed">Proposed</option>
+                                            <option value="Active">Active</option>
+                                            <option value="Resolved">Resolved</option>
+                                            <option value="Closed">Closed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-lg-3 control-label">Assigned:</label>
+                                    <div class="input-group col-sm-9 col-md-9 col-lg-9 panel-body_no-padding-top-bottom">
+                                        <input type="text" class="form-control" aria-label="..." disabled ng-model="$ctrl.workitem.assigned.fullName">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                ng-disabled="$ctrl.disabled">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li ng-repeat="user in $ctrl.users"><a href="" ng-click="$ctrl.selectUser(user);" ng-bind="user.fullName"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-horizontal col-sm-3 col-md-3 col-lg-3">
+
+                        <div class="form-group">
+                            <label class="col-sm-5 col-md-5 col-lg-5 control-label">Priority:</label>
+                            <div class="input-group col-sm-7 col-md-7 col-lg-7">
+                                <select class="form-control" ng-disabled="$ctrl.disabled" ng-model="$ctrl.workitem.priority">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 col-md-5 col-lg-5 control-label">Blocked:</label>
+                            <div class="input-group col-sm-7 col-md-7 col-lg-7">
+                                <select class="form-control" ng-disabled="$ctrl.disabled" ng-model="$ctrl.workitem.blocked">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-inline-container">
+                        <app-tabs class="app-tabs_flex divider-v" height="tabs__pane_full-height">
+                            <app-pane title="Description" ng-if="$ctrl.workitem.type === 'Requirement'">
+                                <textarea class="app-textarea" ng-disabled="$ctrl.disabled" ng-model="$ctrl.workitem.description"></textarea>
+                            </app-pane>
+                            <app-pane title="Repro Steps" ng-if="$ctrl.workitem.type === 'Bug'">
+                                <textarea class="app-textarea" ng-disabled="$ctrl.disabled" ng-model="$ctrl.workitem.reprosteps"></textarea>
+                            </app-pane>
+                            <app-pane title="Symptom" ng-if="$ctrl.workitem.type === 'Bug'">
+                                <textarea class="app-textarea" ng-disabled="$ctrl.disabled" ng-model="$ctrl.workitem.symptom"></textarea>
+                            </app-pane>
+                        </app-tabs>
+
+                        <app-tabs class="app-tabs_flex" height="tabs__pane_full-height">
+                            <app-pane title="History">
+                                <textarea class="app-textarea_history" ng-if="!$ctrl.disabled && !$ctrl.new" placeholder="Type your comment here." ng-model="$ctrl.historyComment"></textarea>
+                                <app-history history="$ctrl.workitem.history"></app-history>
+                            </app-pane>
+                            <app-pane title="Attachments">
+                                <em>No files attached.</em>
+                            </app-pane>
+                        </app-tabs>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

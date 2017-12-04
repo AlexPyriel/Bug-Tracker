@@ -1,0 +1,39 @@
+<div class="panel panel_no-margin-bottom">
+    <div class="panel-body panel-body_no-padding-top">
+
+        <table class="table table-condensed panel_no-margin-bottom">
+            <thead>
+                <tr>
+                    <th class="col-sm-1 col-md-1 col-lg-1">#</th>
+                    <th class="col-sm-1 col-md-1 col-lg-1">Type</th>
+                    <th class="col-sm-5 col-md-5 col-lg-5">Title</th>
+                    <th class="col-sm-2 col-md-2 col-lg-2">Assigned To</th>
+                    <th class="col-sm-1 col-md-1 col-lg-1">Priority</th>
+                    <th class="col-sm-1 col-md-1 col-lg-1">State</th>
+                    <th class="col-sm-1 col-md-1 col-lg-1">Blocked</th>
+                </tr>
+            </thead>
+        </table>
+        
+        <div id="table" class="table_full-height" ng-class="{'table_half-height': $ctrl.selected}">
+            <table class="table table-condensed table-hover">
+                <tbody>
+                    <tr ng-repeat="workitem in $ctrl.workitems" id="{{'tr_' + workitem.id}}" ng-dblClick="$ctrl.openPane(workitem.id)" ng-class="{'app-tab-active': $ctrl.isSelected(workitem.id)}"
+                        ng-click="$ctrl.select(workitem)">
+                        <th class="col-sm-1 col-md-1 col-lg-1" ng-bind="workitem.id"></th>
+                        <td class="col-sm-1 col-md-1 col-lg-1" ng-bind="workitem.type"></td>
+                        <td class="col-sm-5 col-md-5 col-lg-5" ng-bind="workitem.title"></td>
+                        <td class="col-sm-2 col-md-2 col-lg-2" ng-bind="workitem.assigned.fullName"></td>
+                        <td class="col-sm-1 col-md-1 col-lg-1 app-td" ng-bind="workitem.priority"></td>
+                        <td class="col-sm-1 col-md-1 col-lg-1" ng-bind="workitem.state"></td>
+                        <td class="col-sm-1 col-md-1 col-lg-1 app-td" ng-bind="workitem.blocked"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- <app-pagination class="pagination_flex"></app-pagination> -->
+        <app-preview workitem="$ctrl.selectedItem" selected="$ctrl.selected" on-close="$ctrl.closePreview()"></app-preview>
+
+    </div>
+</div>

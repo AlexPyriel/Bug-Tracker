@@ -1,0 +1,57 @@
+<div class="previewSlideUp" ng-show="$ctrl.selected">
+
+    <div class="clearfix">
+        <div type="button" class="close" aria-label="Close" ng-click="$ctrl.close()">
+            <span aria-hidden="true">&times;</span>
+        </div>
+    </div>
+
+    <div ng-switch on="$ctrl.workitem.type" class="row">
+        <div ng-switch-when="Bug" class="flex-container">
+
+            <app-tabs class="app-tabs_flex divider-v">
+                <app-pane title="Repro Steps">
+                    <textarea class="app-textarea app-textarea_preview" disabled ng-bind="$ctrl.workitem.reprosteps"></textarea>
+                </app-pane>
+                <app-pane title="Sypmtom">
+                    <textarea class="app-textarea app-textarea_preview" disabled ng-bind="$ctrl.workitem.symptom"></textarea>
+                </app-pane>
+
+            </app-tabs>
+
+            <app-tabs class="app-tabs_flex">
+                <app-pane title="History">
+                    <app-history history="$ctrl.workitem.history"></app-history>
+                </app-pane>
+                <app-pane title="Attachments">
+                    <em>No files attached.</em>
+                </app-pane>
+            </app-tabs>
+
+        </div>
+
+        <div ng-switch-when="Requirement" class="flex-container">
+
+            <app-tabs class="app-tabs_flex divider-v">
+                <app-pane title="Description">
+                    <textarea class="app-textarea app-textarea_preview" disabled ng-bind="$ctrl.workitem.description"></textarea>
+                </app-pane>
+            </app-tabs>
+
+            <app-tabs class="app-tabs_flex">
+                <app-pane title="History">
+                    <app-history history="$ctrl.workitem.history"></app-history>
+                </app-pane>
+                <app-pane title="Attachments">
+                    <em>No files attached.</em>
+                </app-pane>
+            </app-tabs>
+
+        </div>
+        <div ng-switch-default></div>
+    </div>
+
+    <!-- </div> -->
+    <!-- panel-body -->
+</div>
+<!-- panel -->

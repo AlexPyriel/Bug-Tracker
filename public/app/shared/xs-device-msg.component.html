@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>We are sorry!</h1>
+        <p>
+            M.E.A.N. Bug Tracker use requires a larger screen resolution. Resize your browser, or use a device with a larger screen (Tablet,
+            desktop or laptop).
+        </p>
+        <p><a class="btn btn-info btn-lg" role="button" ng-click="$ctrl.open()">Learn more</a></p>
+    </div>
+    <div class="jumbotron" ng-if="$ctrl.active">
+        <button type="button" class="close" aria-label="Close" ng-click="$ctrl.close()"><span aria-hidden="true">&times;</span></button>
+        <p>
+            Since the idea of the application is to manage lots of bugs and requirements, the M.E.A.N. Bug Tracker's design was created based on tables and forms with data. Despite the fact that we live in an age of plenty responsive mobile-friendly design solutions, we are strongly convinced that the workflow on low screen resolution devices will bring only stress and disappointment.
+        </p>
+    </div>
+</div>

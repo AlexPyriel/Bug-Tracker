@@ -1,0 +1,5 @@
+<div class="app-response-popup" ng-class="{'app-response-popup_error': $ctrl.type === 'error', 'app-response-popup_success': $ctrl.type === 'success'}"
+    ng-if="$ctrl.show">
+    <strong ng-bind="$ctrl.response.title"></strong>
+    <p ng-bind="$ctrl.response.message"></p>
+</div>

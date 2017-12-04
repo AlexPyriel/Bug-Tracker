@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default">
+
+    <div class="container-fluid">
+
+        <div class="navbar-left">
+            
+            <!-- <div type="button" class="btn btn-default app-btn">Query</div> -->
+
+            <!-- <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle app-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display <span class="caret"></span>
+            </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Proposed</a></li>
+                    <li><a href="#">Active</a></li>
+                    <li><a href="#">Resolved</a></li>
+                    <li><a href="#">Closed</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">All</a></li>
+                </ul>
+            </div> -->
+        </div>
+
+        <div class="btn-group navbar-right">
+            <button type="button" class="btn btn-default dropdown-toggle app-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create new <span class="caret"></span>
+          </button>
+          
+            <ul class="dropdown-menu">
+                <li><a href="" ng-click="$ctrl.createPane('Bug')">Bug</a></li>
+                <li><a href="" ng-click="$ctrl.createPane('Requirement')">Requirement</a></li>
+            </ul>
+        </div>
+
+        <form class="navbar-form navbar-right" name="searchForm" novalidate ng-submit="$ctrl.openPane($ctrl.id)">
+            <div class="input-group">
+                <input type="number" name="id" class="form-control navbar__form-control" placeholder="Open Work Item..." ng-model="$ctrl.id">
+
+                <span class="input-group-btn">
+                    <button class="btn btn-default app-btn" type="button" ng-click="$ctrl.openPane($ctrl.id)">Go!</button>
+                </span>
+            </div>
+        </form>
+
+    </div>
+</nav>

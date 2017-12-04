@@ -1,0 +1,41 @@
+<div class="container">
+  <app-toolbar on-open="$ctrl.openWorkitem($event)" on-create="$ctrl.createWorkitemPane($event)"></app-toolbar>
+
+  <div class="panel panel_no-margin-bottom">
+    <div class="panel-body panel-body_no-padding-top-bottom">
+
+      <ul class="nav nav-tabs">
+        <li ng-repeat="tab in $ctrl.tabs">
+          <div ng-switch="tab.id">
+
+            <div ng-switch-when="Work Items">
+              <div type="button" class="btn app-tab app-tab-workitems" ng-class="{'app-tab-active':tab.selected}" ng-click="tab.selected ? $ctrl.getWorkItems() : $ctrl.selectTab(tab)">
+                {{::tab.title}} <span class="glyphicon glyphicon-refresh" aria-hidden="true" ng-if="tab.selected"></span>
+              </div>
+            </div>
+
+            <div ng-switch-default>
+              <div type="button" class="btn app-tab app-tab_close" ng-class="{'app-tab-active':tab.selected}" ng-click="$ctrl.selectTab(tab)">{{::tab.title}}&nbsp
+                <span class="glyphicon glyphicon-remove app-glyphicon-remove" ng-click="$ctrl.closeWorkitem(tab, $index)"></span>
+              </div>
+            </div>
+
+          </div>
+        </li>
+      </ul>
+
+
+    </div>
+    <!-- panel-body -->
+  </div>
+  <!-- panel -->
+
+
+  <div id="PanesContainer">
+    <workitems-pane>
+      <app-table workitems="$ctrl.workitems" on-open="$ctrl.openWorkitem($event)"></app-table>
+    </workitems-pane>
+  </div>
+
+</div>
+<!-- container -->

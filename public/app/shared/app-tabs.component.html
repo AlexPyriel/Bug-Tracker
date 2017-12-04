@@ -1,0 +1,13 @@
+<div class="panel panel-default app-tabs__panel">
+    <nav class="navbar navbar-default">
+
+        <div class="container-fluid">
+
+            <div class="navbar-left">
+                <div type="button" class="btn app-tab" ng-repeat="pane in $ctrl.panes" ng-class="{'app-tab-active':pane.selected}" ng-click="$ctrl.select(pane)">{{pane.title}}</div>
+            </div>
+
+        </div>
+    </nav>
+    <div class="panel-body tabs__pane_half-height" ng-class="$ctrl.class" ng-transclude></div>
+</div>

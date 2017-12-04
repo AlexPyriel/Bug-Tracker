@@ -1,0 +1,37 @@
+<div ng-repeat="update in $ctrl.history">
+    <p ng-if="update.initial"><strong ng-bind="update.created"></strong> created the work item:</p>
+    <p ng-if="!update.initial"><strong ng-bind="update.updated"></strong> updated the work item:</p>
+    <p ng-if="update.workNote" ng-bind="::update.workNote"></p>
+    <div class="app-history__timeStamp" ng-bind="::update.timeStamp"></div>
+    <div ng-if="update.changes.length > 0">
+
+        <a href="" ng-model="clicked" ng-click="clicked = !clicked">{{clicked ? "Hide changes:" : "Show changes:" }}</a>
+        <div class="app-history" ng-switch on="update.initial">
+            <div ng-switch-when="true">
+                <div class="flex-container animate-show-hide" ng-show="clicked">
+                    <div class="flex_1"></div>
+                    <div class="flex_2"><em>Initial value:</em></div>
+                </div>
+                <div ng-repeat="change in update.changes" class="flex-container animate-show-hide" ng-show="clicked">
+                    <div class="flex_1" ng-bind="::change.property"></div>
+                    <div class="flex_2" ng-bind="::change.initialValue"></div>
+                </div>
+            </div>
+            <div ng-switch-default>
+                <div class="flex-container animate-show-hide" ng-show="clicked">
+                    <div class="flex_1"></div>
+                    <div class="flex_2"><em>Old value:</em></div>
+                    <div class="flex_2"><em>New value:</em></div>
+                </div>
+                <div ng-repeat="change in update.changes" class="flex-container animate-show-hide" ng-show="clicked">
+                    <div class="flex_1" ng-bind="::change.property"></div>
+                    <div class="flex_2" ng-bind="::change.oldValue"></div>
+                    <div class="flex_2" ng-bind="::change.newValue"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <hr>
+</div>

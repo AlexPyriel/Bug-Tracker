@@ -1,0 +1,23 @@
+<div class="block-vertical-align">
+    <form novalidate class="auth-form" name="loginForm" ng-submit="$ctrl.login()">
+        <h2>Log In</h2>
+
+        <input type="email" class="form-control auth-form__elements app-form-outline_valid" ng-class="{'login-email_recall': loginForm.uEmail.$pristine && $ctrl.rememberMe, 'app-form-outline_invalid': loginForm.uEmail.$touched || loginForm.$submitted}" placeholder="Email Address" ng-model="$ctrl.user.email" name="uEmail" ng-change="$ctrl.touchEmail()" app-email required>
+        <div ng-messages="loginForm.uEmail.$error" class="app-form__alerts" ng-if='(loginForm.uEmail.$touched && loginForm.uEmail.$invalid) || (loginForm.uEmail.$invalid && loginForm.$submitted)'>
+            <div ng-message="required" class="app-form__alert">The <strong>Email Address</strong> is required.</div>
+            <div ng-message="useremail" class="app-form__alert">The <strong>Email Address</strong> format is invalid.</div>
+        </div>
+
+        <input type="password" class="form-control auth-form__elements app-form-outline_valid" ng-class="{'app-form-outline_invalid': loginForm.uPassword.$touched || loginForm.$submitted}"
+            placeholder="Password" ng-model="$ctrl.user.password" name="uPassword" required>
+        <div ng-messages="loginForm.uPassword.$error" class="app-form__alerts" ng-if='(loginForm.uPassword.$touched && loginForm.uPassword.$invalid) || (loginForm.uPassword.$invalid && loginForm.$submitted)'>
+            <div ng-message="required" class="app-form__alert">The <strong>Password</strong> is required.</div>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" ng-model="$ctrl.rememberMe"> Remember me</label>
+        </div>
+
+        <button type="submit" class="btn btn-info btn-block app-btn app-btn_shadow auth-form__elements">Log In</button>
+    </form>
+</div>
