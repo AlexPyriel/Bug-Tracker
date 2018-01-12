@@ -20,8 +20,8 @@ function provideHistory(oldVersion, newVersion) {
         result.push({ property: value, oldValue: oldVersion[key], newValue: newVersion[key] });
     }, []);
 
-    var assignedResult = compareAssigned(oldVersion.assigned, newVersion.assigned);
-    if (assignedResult) update.changes.push(assignedResult);
+    // var assignedResult = compareAssigned(oldVersion.assigned, newVersion.assigned);
+    // if (assignedResult) update.changes.push(assignedResult);
   }
   
   history.unshift(update);
