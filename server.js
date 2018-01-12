@@ -11,7 +11,6 @@ var log = require('./server/lib/log').serverLogger;
 var app = express();
 var server = http.createServer(app);
 
-app.set('port', process.env.PORT || 5000);
 // app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -41,8 +40,8 @@ function connect() {
 }
 
 function listen() {
-    server.listen(config.get('port'));
-    log.warn('Server listening on port ' + config.get('port'));
+    server.listen(process.env.PORT || 5000);
+    log.warn('Server listening on port ');
 }
 
 app.use(errorHandler);
