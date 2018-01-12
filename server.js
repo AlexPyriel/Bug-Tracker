@@ -4,7 +4,7 @@ var path = require('path');
 var config = require('./server/config');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var db = require('server/lib/mongoose').db;
+var db = require('./server/lib/mongoose').db;
 var errorHandler = require('./server/lib/errorHandler');
 var log = require('./server/lib/log').serverLogger;
 
