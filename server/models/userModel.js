@@ -1,7 +1,7 @@
-var mongoose = require('server/lib/mongoose'),
+var mongoose = require('../lib/mongoose'),
     Schema = mongoose.Schema,
     bcrypt = require('bcrypt');
-var db = require('server/lib/mongoose').db;
+var db = require('../lib/mongoose').db;
 var UserSchema = new Schema({
 
     email: {

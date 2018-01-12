@@ -2,7 +2,7 @@ var mongoose = require('../lib/mongoose'),
     Schema = mongoose.Schema,
     User = require('../models/userModel').User,
     autoIncrement = require('mongoose-auto-increment');
-    var db = require('server/lib/mongoose').db;
+    var db = require('../lib/mongoose').db;
     
     autoIncrement.initialize(db);
 
