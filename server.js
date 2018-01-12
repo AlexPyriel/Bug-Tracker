@@ -11,7 +11,7 @@ var log = require('./server/lib/log').serverLogger;
 var app = express();
 var server = http.createServer(app);
 
-app.set('port', config.get('port'));
+app.set('port', process.env.PORT || 5000);
 // app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
