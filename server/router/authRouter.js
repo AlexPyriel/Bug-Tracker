@@ -2,7 +2,7 @@ var express = require('express');
 var authRouter = express.Router();
 var userController = require('../controllers/userController');
 var validator = require('../controllers/userValidator');
-var authController = require('../controllers/authCOntroller');
+var authController = require('../controllers/authController');
 var httpError = require('../lib/httpError');
 
 authRouter.post('/register', validator.setModel, validator.validateModel, userController.createUser);
