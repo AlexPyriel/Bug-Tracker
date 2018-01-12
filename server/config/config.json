@@ -1,5 +1,5 @@
 {
-    "port": 3000,
+    "port": 6000,
     "mongoose": {
         "uri": "mongodb://alexpyriel:alex123@ds247327.mlab.com:47327/meanbt",
         "options": {
