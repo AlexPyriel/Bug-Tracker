@@ -36,12 +36,12 @@ connect()
     });
 
 function connect() {
-    return db;
+    return db; 
 }
 
 function listen() {
     server.listen(process.env.PORT || 5000);
-    log.warn('Server listening on port ');
+    log.warn('Server listening on port ' + process.env.PORT || 5000);
 }
 
 app.use(errorHandler);
